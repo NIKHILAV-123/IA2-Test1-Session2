@@ -1,13 +1,17 @@
-gcc -g p4final.c
+ 
+ gcc -g p5final,c
+gcc: error: p5final,c: No such file or directory
+gcc: fatal error: no input files
+compilation terminated.
  ./a.out
 enter the length of the array:
-4
+2
 enter all values of the array:
 1
-2 
-3
-4
-4
+2
+0
+ gcd a.out
+bash: gcd: command not found
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -43,7 +47,7 @@ input_array_size () at p4final.c:4
 enter the length of the array:
 7     scanf("%d", &length);
 (gdb) n
-4
+2
 8     return length;
 (gdb) n
 9   }
@@ -52,15 +56,31 @@ main () at p4final.c:48
 48    int data[length];
 (gdb) s
 49    input_array(length, data);
+(gdb) s
+input_array (n=2, a=0x7ffe952a6420) at p4final.c:13
+13    printf("enter all values of the array:\n");
 (gdb) n
 enter all values of the array:
+14    for (int i = 0; i<n; i++)
+(gdb) n
+16        scanf("%d", &a[i]);
+(gdb) n
 1
+14    for (int i = 0; i<n; i++)
+(gdb) 2
+Undefined command: "2".  Try "help".
+(gdb) n
+16        scanf("%d", &a[i]);
+(gdb) n
 2
-3
-4
+14    for (int i = 0; i<n; i++)
+(gdb) n
+18  }
+(gdb) n
+main () at p4final.c:50
 50    int res = sum_composite_numbers(length, data);
 (gdb) s
-sum_composite_numbers (n=4, a=0x7ffffd6584e0) at p4final.c:31
+sum_composite_numbers (n=2, a=0x7ffe952a6420) at p4final.c:31
 31    int sum = 0;
 (gdb) n
 32    for (int i = 0; i < n; i++)
@@ -70,18 +90,24 @@ sum_composite_numbers (n=4, a=0x7ffffd6584e0) at p4final.c:31
 32    for (int i = 0; i < n; i++)
 (gdb) n
 34        if(is_composite(a[i]))
-(gdb) n
-32    for (int i = 0; i < n; i++)
-(gdb) n
-34        if(is_composite(a[i]))
-(gdb) p a[i]
-$1 = 3
-(gdb) p i++
-$2 = 2
-(gdb) p sum
-$3 = 0
-(gdb) n
-36          sum += a[i];
+(gdb) p a
+$1 = (int *) 0x7ffe952a6420
+(gdb) p b
+No symbol "b" in current context.
+(gdb) p a
+$2 = (int *) 0x7ffe952a6420
+(gdb) p i
+$3 = 1
+(gdb) p i
+$4 = 1
+(gdb) p gcd
+No symbol "gcd" in current context.
+(gdb) p num1
+No symbol "num1" in current context.
+(gdb) p n
+$5 = 2
+(gdb) p n
+$6 = 2
 (gdb) n
 32    for (int i = 0; i < n; i++)
 (gdb) n
@@ -92,13 +118,18 @@ $3 = 0
 main () at p4final.c:51
 51    output(res);
 (gdb) s
-output (sum=4) at p4final.c:43
+output (sum=0) at p4final.c:43
 43    printf("%d\n", sum);
 (gdb) n
-4
+0
 44  }
 (gdb) n
 main () at p4final.c:52
 52    return 0;
 (gdb) n
-53  }(gdb) 
+53  }(gdb) n
+__libc_start_main (main=0x564750a008e7 <main>, argc=1, argv=0x7ffe952a6568, 
+    init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
+    stack_end=0x7ffe952a6558) at ../csu/libc-start.c:344
+344 ../csu/libc-start.c: No such file or directory.
+(gdb) n
