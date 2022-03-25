@@ -2,7 +2,7 @@
 
 void input(float *base, float *height)
 {
-  printf("enter the base and height of the triangle:\n");\
+  printf("enter the base and height of the triangle:\n"); 
   scanf("%f%f",base,height);
   
 }
