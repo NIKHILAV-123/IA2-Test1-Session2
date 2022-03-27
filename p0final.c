@@ -1,47 +1,38 @@
  
 #include<stdio.h>
-
-int input()
+ void input_string(char *a)
 {
-  int num;
-  printf("enter a number:\n");
-  scanf("%d", &num);
-  return 0;
+  printf("enter the string:\n");
+  scanf("%s", a);
   
 }
-int gcd(int a, int b)
-{
-  int large = a>b ? a:b;
-  int small = a<b ? a:b;
-  int i = 1;
-  int rem = 1;
 
-  while(rem)
+void str_reverse(char *str, char *rev_str)
+{
+  int n;
+  for (n = 0; str[n]; n++);
+  n--;
+  int i;
+  for (i = 0; str[i]; i++)
     {
-      rem = large - i * small;
-      if(rem < small)
-      {
-        large = small;
-        small = rem;
-        i = 0;
-      }
-      i++;
+      rev_str[i] = str[n];
+      n--;
     }
-  return large;
+  rev_str[i] = '\0';
 }
 
-void output(int a, int b, int gcd
+void output(char *a, char *reverse_a)
 {
-  printf("the gcd of %d and %d is %d\n",a,b,gcd);
-  
+  printf("the reverse of %s is %s\n", a, reverse_a);
 }
 
 int main()
 {
-  int num1 = input();
-  int num2 = input();
-  int res = gcd(num1, num2);
-  output(num1, num2, res);
+  char str[20];
+  input_string(str);
+  char rev_str[20];
+  str_reverse(str, rev_str);
+  output(str, rev_str);
   return 0;
+  
 }
-
