@@ -29,7 +29,7 @@ int gcd(int a, int b)
   return large;
 }
 
-void output(int a, int b, int gcd
+void output(int a, int b, int gcd)
 {
   printf("the gcd of %d and %d is %d\n",a,b,gcd);
   

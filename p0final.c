@@ -1,54 +1,47 @@
  
 #include<stdio.h>
 
-int input_array_size()
+int input()
 {
-  int length;
-  printf("enter the length of the array:\n");
-  scanf("%d", &length);
-  return length;
-}
-
-void input_array(int n, int a[n])
-{
-  printf("enter all values of the array:\n");
-  for (int i = 0; i<n; i++)
-    {
-      scanf("%d", &a[i]);
-    }
-}
-
-int is_composite(int n)
-{
-  for(int i = 2; i <= n/2; i++)
-    {
-      if (n%i == 0)
-        return 1;
-    }
+  int num;
+  printf("enter a number:\n");
+  scanf("%d", &num);
   return 0;
+  
 }
- int sum_composite_numbers(int n, int a[n])
+int gcd(int a, int b)
 {
-  int sum = 0;
-  for (int i = 0; i < n; i++)
+  int large = a>b ? a:b;
+  int small = a<b ? a:b;
+  int i = 1;
+  int rem = 1;
+
+  while(rem)
     {
-      if(is_composite(a[i]))
+      rem = large - i * small;
+      if(rem < small)
       {
-        sum += a[i];
+        large = small;
+        small = rem;
+        i = 0;
       }
+      i++;
     }
-  return sum;
+  return large;
 }
-void output(int sum)
+
+void output(int a, int b, int gcd
 {
-  printf("%d\n", sum);
+  printf("the gcd of %d and %d is %d\n",a,b,gcd);
+  
 }
+
 int main()
 {
-  int length = input_array_size();
-  int data[length];
-  input_array(length, data);
-  int res = sum_composite_numbers(length, data);
-  output(res);
+  int num1 = input();
+  int num2 = input();
+  int res = gcd(num1, num2);
+  output(num1, num2, res);
   return 0;
 }
+
